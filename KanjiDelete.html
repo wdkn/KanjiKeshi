@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>漢字消しパズル</title>
+<link href="KanjiDelete.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="KanjiDelete.js"></script>  
+</head>
+
+<body>
+  <!-- <input type="file" id="selfile"></input> -->
+  <text id="level">難易度</text>
+  <input type="button" id="modeA" value="初級" class="lvlBtn" onclick="btnModeAClick()"></input>
+  <input type="button" id="modeB" value="中級" class="lvlBtn" disabled="true"></input>
+  <input type="button" id="modeB" value="上級" class="lvlBtn" disabled="true"></input>
+  <br>
+
+<div id="pnlArea">
+  <div id="panel"></div>
+  <div id="hdn_panel" hidden></div>
+  <div id="hdn_flg" hidden></div>
+</div>
+  <br>
+  <input id="txt" rows="1" cols="3" maxlength="3"></input>
+  <input type="button" id="btnDef" value="決定" onclick="btnDefClick()"></input>
+
+  <!-- 選択漢字　３つまで -->
+  <input type="hidden" id="word1"></input>
+  <input type="hidden" id="word2"></input>
+  <input type="hidden" id="word3"></input>
+  <input type="hidden" id="read1"></input>
+  <input type="hidden" id="read2"></input>
+  <input type="hidden" id="read3"></input>
+  <input type="hidden" id="flg1"></input>
+  <input type="hidden" id="flg2"></input>
+  <input type="hidden" id="flg3"></input>
+  <input type="hidden" id="tileNum"></input>
+  <input type="hidden" id="flgCount"></input>
+
+<!-- 001_試作 -->
+  <script type="text/csv" id="Q001">雅/みやび,桜/さくら,点/てん,呼/こ,新/しん,意/い,固/こ,地/じ,規/き,麒/き,麟/りん,狸/たぬき,通/つう,知/ち,身/か,体/らだ</script>
+  <script type="text/csv" id="A001">雅/みやび,桜/さくら,点呼/てんこ,新規/しんき,意固地/いこじ,麒麟/きりん,狸/たぬき,通知/つうち,身体/からだ</script>
+
+
+
+</body></html>
