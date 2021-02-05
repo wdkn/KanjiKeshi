@@ -14,10 +14,12 @@ window.onload = function() {
   var tileSum = 0;
   flgCount.value = 0;
 
-  // パネルエリア表示
+  // パネル、回答エリア表示
   var pnlArea = document.getElementById("pnlArea");
+  var btnDef = document.getElementById("btnDef");
   pnlArea.style.display = "none";
-
+  txtArea.style.display = "none";
+  btnDef.style.display = "none";
 
   // 回答読み込み
   var q001 = document.getElementById("Q001");
@@ -57,6 +59,7 @@ window.onload = function() {
     tileNum.value = String(tileSum);
   }
 
+var timer;
 
 // タイルクリック時の処理
 function click(e) {
@@ -156,10 +159,19 @@ function btnDefClick() {
       if (selKanji == arr[0]){
         if (selYomi == arr[1]){
           for (var k = 0; k < index.length; k++){
-            tiles[index[k]].textContent = "";
+            tile[index[k]].textContent = "";
             tile[index[k]].style.backgroundColor = 'white';
+            tiles[index[k]].style.border = '1px solid white';
+            // tiles[index[k]].style.borderradius = '0px';
             flg_tile[index[k]].textContent = "0";
             flgCount.value = "0"
+            txt.value = "";
+
+
+            // ステータスを一時表示
+            var status = document.getElementById("status");
+            timer = setTimeout(statusAct, 5000);
+            status.textContent = "ナイス！";
           }
         }
       }
@@ -175,9 +187,20 @@ function btnDefClick() {
 
 };
 
-// 決定ボタンクリック時
+// 初級ボタンクリック時
 function btnModeAClick() {
   var pnlArea = document.getElementById("pnlArea");
-  pnlArea.style.display = "block";
+  var txtArea = document.getElementById("txt");
+  var btnDef = document.getElementById("btnDef");
+  pnlArea.style.display = "inline";
+  txtArea.style.display = "inline";
+  btnDef.style.display = "inline";
   // location.reload();
+};
+
+// ステータスをクリア
+function statusAct() {
+  clearTimeout(timer);
+  var status = document.getElementById("status");
+  status.textContent = "";
 };
