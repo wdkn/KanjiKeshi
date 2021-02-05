@@ -14,14 +14,15 @@
   <text id="level">難易度</text>
   <input type="button" id="modeA" value="初級" class="lvlBtn" onclick="btnModeAClick()"></input>
   <input type="button" id="modeB" value="中級" class="lvlBtn" disabled="true"></input>
-  <input type="button" id="modeB" value="上級" class="lvlBtn" disabled="true"></input>
+  <input type="button" id="modeC" value="上級" class="lvlBtn" disabled="true"></input>
   <br>
 
-<div id="pnlArea">
-  <div id="panel"></div>
-  <div id="hdn_panel" hidden></div>
-  <div id="hdn_flg" hidden></div>
-</div>
+  <text id="status"></text>
+  <div id="pnlArea">
+    <div id="panel"></div>
+    <div id="hdn_panel" hidden></div>
+    <div id="hdn_flg" hidden></div>
+  </div>
   <br>
   <input id="txt" rows="1" cols="3" maxlength="3"></input>
   <input type="button" id="btnDef" value="決定" onclick="btnDefClick()"></input>
