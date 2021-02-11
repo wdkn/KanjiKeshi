@@ -11,11 +11,14 @@
 
 <body>
   <!-- <input type="file" id="selfile"></input> -->
-  <text id="level">難易度</text>
-  <input type="button" id="modeA" value="初級" class="lvlBtn" onclick="btnModeAClick()"></input>
-  <input type="button" id="modeB" value="中級" class="lvlBtn" disabled="true"></input>
-  <input type="button" id="modeC" value="上級" class="lvlBtn" disabled="true"></input>
-  <br>
+
+  <div id="areaTop">
+    <text id="title">タイトル</text></br>
+    <text id="level">難易度</text></br>
+    <input type="button" id="modeA" value="初級" class="lvlBtn" onclick="btnModeAClick()"></input></br>
+    <input type="button" id="modeB" value="中級" class="lvlBtn" disabled="true"></input></br>
+    <input type="button" id="modeC" value="上級" class="lvlBtn" disabled="true"></input></br>
+  </div>
 
   <text id="status"></text>
   <div id="pnlArea">
@@ -38,7 +41,9 @@
   <input type="hidden" id="flg2"></input>
   <input type="hidden" id="flg3"></input>
   <input type="hidden" id="tileNum"></input>
-  <input type="hidden" id="flgCount"></input>
+  <input type="hidden" id="corNum"></input>
+  <input type="hidden" id="corSum"></input>
+  <input type="text" id="flgCount"></text>
 
 <!-- 001_試作 -->
   <script type="text/csv" id="Q001">雅/みやび,桜/さくら,点/てん,呼/こ,新/しん,意/い,固/こ,地/じ,規/き,麒/き,麟/りん,狸/たぬき,通/つう,知/ち,身/か,体/らだ</script>

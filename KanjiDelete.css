@@ -1,6 +1,33 @@
+body{
+  width: 90%;
+  margin-left: 2%;
+  margin-right: 2%;
+  padding:2px;
+  /* background-color: black; */
+}
+
+#title {
+  width: 80%;
+  padding:5px;
+  font-size: 30px;
+  border: solid;
+  text-align: center;
+  margin: 0 auto;
+  /* max-width: 500px; */
+  /* align-items: center; */
+  display: inline-block;
+}
+
+#areaTop {
+  width: 80%;
+  padding:10px;
+  background-color: lightgray;
+  display: inline-block;
+}
+
 #panel {
-    width: 250px;
-    height: 250px;
+    width: 220px;
+    height: 220px;
     overflow: hidden;
 }
 
@@ -52,9 +79,15 @@
 }
 
 .lvlBtn {
-  font-size: 12px;
+  font-size: 30px;
+  width:20%;
+  padding:10px;
+  background-color: #191970;
+  border-radius: 10%;
+  color: white;
 }
 
 #status {
-
+  width: 100px;
+  text-align: center;
 }

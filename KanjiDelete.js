@@ -57,6 +57,12 @@ window.onload = function() {
     }
 
     tileNum.value = String(tileSum);
+
+    // 回答数の格納
+    var a001 = document.getElementById("A001");
+    var words = a001.textContent.split(',');
+    var corSum = document.getElementById("corSum");
+    corSum.value = words.length;
   }
 
 var timer;
@@ -72,8 +78,17 @@ function click(e) {
   var hdn_panel = document.getElementsByClassName("r_tile");
   var flg_tile = document.getElementsByClassName("flg_tile");
 
+  var tileNum = document.getElementById("tileNum");
+
+  // 選択タイル
   var tileNo = e.target.index;
-  // var flgCount = 0;
+  // 選択タイルの活性フラグ
+  var flg = flg_tile[tileNo].textContent;
+  // 上下左右のタイルNo
+  var flgUp = tileNo - 4;
+  var flgDw = tileNo + 4;
+  var flgLe = tileNo - 1;
+  var flgRi = tileNo + 1;
 
   var word1 = document.getElementById("word1");
   var word2 = document.getElementById("word2");
@@ -83,16 +98,37 @@ function click(e) {
   var read3 = document.getElementById("read3");
 
   // タイルの選択
-  if (flg_tile[tileNo].textContent == 0){
-    if (parseInt(flgCount.value) < 3){
-      flg_tile[tileNo].textContent = 1;
-      flgCount.value = String(parseInt(flgCount.value) + 1);
-      e.target.style.backgroundColor = 'yellow';
+  if (flg == "0"){
+    switch (parseInt(flgCount.value)) {
+      case 0:
+        flg = "1";
+        flgCount.value = String(parseInt(flgCount.value) + 1);
+        e.target.style.backgroundColor = 'yellow';
+        break;
+
+      case 3:
+        flg = "0";
+        // flgCount.value = String(parseInt(flgCount.value) - 1);
+        e.target.style.backgroundColor = 'white';
+        break;
+
+      default:
+        // 選択したタイルの上下左右のいずれかのタイルが活性の場合
+        if ((flgUp > -1 && flg_tile[flgUp].textContent == 1)
+         || (flgDw < parseInt(tileNum.value) && flg_tile[flgDw].textContent == 1)
+         || (flgLe > -1 && flg_tile[flgLe].textContent == 1)
+         || (flgRi < parseInt(tileNum.value) && flg_tile[flgRi].textContent == 1)) {
+           flg = "1";
+           flgCount.value = String(parseInt(flgCount.value) + 1);
+           e.target.style.backgroundColor = 'yellow';
+        }
     }
-  }else {
-    flg_tile[tileNo].textContent = 0;
+    flg_tile[tileNo].textContent = String(flg);
+  } else {
+    flg = "0";
     flgCount.value = String(parseInt(flgCount.value) - 1);
     e.target.style.backgroundColor = 'white';
+    flg_tile[tileNo].textContent = String(flg);
   }
 };
 
@@ -111,6 +147,8 @@ function btnDefClick() {
   var flg_tile = document.getElementsByClassName("flg_tile");
 
   var tileNum = document.getElementById("tileNum");
+  var corNum = document.getElementById("corNum");
+  var corSum = document.getElementById("corSum");
   var flgCount = document.getElementById("flgCount");
   var txt = document.getElementById("txt");
 
@@ -164,19 +202,26 @@ function btnDefClick() {
             tiles[index[k]].style.border = '1px solid white';
             // tiles[index[k]].style.borderradius = '0px';
             flg_tile[index[k]].textContent = "0";
-            flgCount.value = "0"
+            flgCount.value = "0";
             txt.value = "";
-
 
             // ステータスを一時表示
             var status = document.getElementById("status");
             timer = setTimeout(statusAct, 5000);
             status.textContent = "ナイス！";
+
+            // 生回数をカウント
+            corNum.value = String(parseInt(corNum.value) + 1);
+
+            if (corNum.value == corSum.value) {
+              status.textContent = "クリア！";
+            }
           }
         }
       }
     }
   }
+
   // クリア処理
   word1.value = ""
   word2.value = ""
