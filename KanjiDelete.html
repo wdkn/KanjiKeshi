@@ -7,28 +7,51 @@
 <title>漢字消しパズル</title>
 <link href="KanjiDelete.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="KanjiDelete.js"></script>  
+<script src="https://kit.fontawesome.com/dd4743d4c7.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <!-- <input type="file" id="selfile"></input> -->
 
   <div id="areaTop">
-    <text id="title">タイトル</text></br>
-    <text id="level">難易度</text></br>
-    <input type="button" id="modeA" value="初級" class="lvlBtn" onclick="btnModeAClick()"></input></br>
-    <input type="button" id="modeB" value="中級" class="lvlBtn" disabled="true"></input></br>
-    <input type="button" id="modeC" value="上級" class="lvlBtn" disabled="true"></input></br>
+    <text id="title">漢字消します</text></br>
+    <div id="arealvl">
+      <input type="button" id="modeA" value="初級" class="lvlBtn" onclick="btnModeAClick()"></input></br>
+      <input type="button" id="modeB" value="中級" class="lvlBtn" disabled="true"></input></br>
+      <input type="button" id="modeC" value="上級" class="lvlBtn" disabled="true"></input></br>
+    </div>
+  </div></br>
+
+  <div id="tmArea">
+    <text id="lblRemain">残り時間：</text>
+    <text id="min" class="remain"></text><text>分 </text>
+    <text id="sec" class="remain"></text><text>秒</text></br>
   </div>
 
-  <text id="status"></text>
   <div id="pnlArea">
+    <text id="status" textContent="ナイス！"></text>
     <div id="panel"></div>
     <div id="hdn_panel" hidden></div>
     <div id="hdn_flg" hidden></div>
+    <input id="txt" rows="1" cols="3" maxlength="3"></input></br>
+    <input type="button" id="btnDef" value="決定" onclick="btnDefClick()"></input>
   </div>
-  <br>
-  <input id="txt" rows="1" cols="3" maxlength="3"></input>
-  <input type="button" id="btnDef" value="決定" onclick="btnDefClick()"></input>
+  </br>
+  </br>
+
+  <!-- クリア -->
+  <div id="clearArea">
+    <i class="far fa-laugh-squint laugh"></i>
+    <text id="clear">くりあ！</text>
+    <i class="far fa-laugh-squint laugh"></i>
+  </div>
+
+  <!-- ゲームオーバー -->
+  <div id="endArea">
+    <i class="fas fa-poo poo"></i>
+    <text id="gameOver">ゲームオーバー！</text>
+    <i class="fas fa-poo poo"></i>
+  </div>
 
   <!-- 選択漢字　３つまで -->
   <input type="hidden" id="word1"></input>
@@ -42,8 +65,8 @@
   <input type="hidden" id="flg3"></input>
   <input type="hidden" id="tileNum"></input>
   <input type="hidden" id="corNum"></input>
-  <input type="hidden" id="corSum"></input>
-  <input type="text" id="flgCount"></text>
+  <input type="hidden" id="corSum"></input></br>
+  <input type="hidden" id="flgCount"></text>
 
 <!-- 001_試作 -->
   <script type="text/csv" id="Q001">雅/みやび,桜/さくら,点/てん,呼/こ,新/しん,意/い,固/こ,地/じ,規/き,麒/き,麟/りん,狸/たぬき,通/つう,知/ち,身/か,体/らだ</script>

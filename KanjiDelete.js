@@ -2,6 +2,7 @@
 // グローバル  div要素を格納
 tiles = [];
 
+// 初期表示
 window.onload = function() {
   var panel = document.getElementById("panel");
   var hdn_panel = document.getElementById("hdn_panel");
@@ -10,15 +11,19 @@ window.onload = function() {
   var txtArea = document.getElementById("txt");
   var tileNum = document.getElementById("tileNum");
   var flgCount = document.getElementById("flgCount");
+  var corNum = document.getElementById("corNum");
 
   var tileSum = 0;
   flgCount.value = 0;
+  corNum.value = "0";
 
   // パネル、回答エリア表示
   var pnlArea = document.getElementById("pnlArea");
+  var tmArea = document.getElementById("tmArea");
   var btnDef = document.getElementById("btnDef");
   pnlArea.style.display = "none";
   txtArea.style.display = "none";
+  tmArea.style.display = "none";
   btnDef.style.display = "none";
 
   // 回答読み込み
@@ -124,7 +129,7 @@ function click(e) {
         }
     }
     flg_tile[tileNo].textContent = String(flg);
-  } else {
+  } else if (flg == "1"){
     flg = "0";
     flgCount.value = String(parseInt(flgCount.value) - 1);
     e.target.style.backgroundColor = 'white';
@@ -142,9 +147,12 @@ function btnDefClick() {
   var read3 = document.getElementById("read3");
   var index = [];
 
+  var pnlArea = document.getElementById("pnlArea");
   var tile = document.getElementsByClassName("tile");
   var r_tile = document.getElementsByClassName("r_tile");
   var flg_tile = document.getElementsByClassName("flg_tile");
+  var tmArea = document.getElementById("tmArea");
+  var clearArea = document.getElementById("clearArea");
 
   var tileNum = document.getElementById("tileNum");
   var corNum = document.getElementById("corNum");
@@ -198,24 +206,27 @@ function btnDefClick() {
         if (selYomi == arr[1]){
           for (var k = 0; k < index.length; k++){
             tile[index[k]].textContent = "";
-            tile[index[k]].style.backgroundColor = 'white';
-            tiles[index[k]].style.border = '1px solid white';
+            tile[index[k]].style.backgroundColor = 'lightgray';
+            tiles[index[k]].style.border = '1px solid lightgray';
+            tiles[index[k]].style.cursor = "default"
             // tiles[index[k]].style.borderradius = '0px';
-            flg_tile[index[k]].textContent = "0";
+            flg_tile[index[k]].textContent = "2";
             flgCount.value = "0";
             txt.value = "";
+          }
+          // ステータスを一時表示
+          var status = document.getElementById("status");
+          timer = setTimeout(statusAct, 3000);
+          status.textContent = "ナイス！";
 
-            // ステータスを一時表示
-            var status = document.getElementById("status");
-            timer = setTimeout(statusAct, 5000);
-            status.textContent = "ナイス！";
+          // 正答数をカウント
+          corNum.value = String(parseInt(corNum.value) + 1);
 
-            // 生回数をカウント
-            corNum.value = String(parseInt(corNum.value) + 1);
-
-            if (corNum.value == corSum.value) {
-              status.textContent = "クリア！";
-            }
+          if (corNum.value == corSum.value) {
+            status.textContent = "クリア！";
+            pnlArea.style.display = "none";
+            tmArea.style.display = "none";
+            clearArea.style.display = "inline-block";
           }
         }
       }
@@ -232,15 +243,27 @@ function btnDefClick() {
 
 };
 
+var tmCount;
+
 // 初級ボタンクリック時
 function btnModeAClick() {
+  var topArea = document.getElementById("areaTop");
   var pnlArea = document.getElementById("pnlArea");
   var txtArea = document.getElementById("txt");
+  var tmArea = document.getElementById("tmArea");
   var btnDef = document.getElementById("btnDef");
-  pnlArea.style.display = "inline";
-  txtArea.style.display = "inline";
-  btnDef.style.display = "inline";
+  topArea.style.display = "none";
+  pnlArea.style.display = "inline-block";
+  txtArea.style.display = "inline-block";
+  tmArea.style.display = "inline-block";
+  btnDef.style.display = "inline-block";
   // location.reload();
+
+  // カウウントダウンタイマー
+  document.getElementById("min").textContent = "0";
+  document.getElementById("sec").textContent = "3";
+  tmCount=setInterval("countDown()",1000);
+
 };
 
 // ステータスをクリア
@@ -249,3 +272,59 @@ function statusAct() {
   var status = document.getElementById("status");
   status.textContent = "";
 };
+
+//カウントダウン関数
+function countDown()
+{
+  var min=document.getElementById("min").textContent;
+  var sec=document.getElementById("sec").textContent;
+
+  // if( (min=="") && (sec=="") )
+  // {
+  //   alert("時刻を設定してください！");
+  //   reSet();
+  // }
+  // else
+  // {
+    if (min=="") min=0;
+    min=parseInt(min);
+
+    if (sec=="") sec=0;
+    sec=parseInt(sec);
+
+    tmWrite(min*60+sec-1);
+  // }
+};
+
+//残り時間を書き出す関数
+function tmWrite(int)
+{
+  int=parseInt(int);
+
+  if (int<=0)
+  {
+    reSet();
+    // alert("ゲームオーバー");
+    var endArea = document.getElementById("endArea");
+    var pnlArea = document.getElementById("pnlArea");
+    var tmArea = document.getElementById("tmArea");
+    endArea.style.display = "inline-block";
+    pnlArea.style.display = "none";
+    tmArea.style.display = "none";
+  }
+  else
+  {
+    //残り分数はintを60で割って切り捨てる
+    document.getElementById("min").textContent=Math.floor(int/60);
+    //残り秒数はintを60で割った余り
+    document.getElementById("sec").textContent=int % 60;
+  }
+};
+
+// フォームを初期状態に戻す（リセット）関数
+function reSet()
+{
+  document.getElementById("min").textContent="0";
+  document.getElementById("min").textContent="0";
+  clearInterval(tmCount);
+}
