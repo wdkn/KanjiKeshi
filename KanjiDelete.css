@@ -7,7 +7,7 @@ body{
 
 #areaTop {
   width: 80%;
-  height: 170px;
+  height: 190px;
       position: absolute;
       left: 0;
       right: 0;
@@ -53,7 +53,8 @@ body{
 #arealvl {
   width: 100%;
   height: 70%;
-  display: inline-block;
+  top: 1px;
+  /* display: inline-block; */
   margin-top: 1%;
   margin-bottom: 1%;
 }
@@ -61,14 +62,14 @@ body{
 .lvlBtn {
   font-size: 15px;
   width:40%;
-  height: 40px;
-  padding: 5px;
+  height: 40%;
+  padding: 9px;
   text-align: center;
   /* display: inline-block; */
   margin-left: 30%;
   margin-right: 30%;
-  margin-top:4px;
-  margin-bottom:4px;
+  margin-top:1%;
+  margin-bottom:1%;
   /* background-color: #191970;
   border-radius: 10%;
   color: white; */
