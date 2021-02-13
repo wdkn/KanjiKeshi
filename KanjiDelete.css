@@ -62,14 +62,14 @@ body{
 .lvlBtn {
   font-size: 15px;
   width:40%;
-  height: 40%;
+  height: 10%;
   /* padding: 9px; */
   text-align: center;
   /* display: inline-block; */
   margin-left: 30%;
   margin-right: 30%;
-  margin-top:1%;
-  margin-bottom:1%;
+  margin-top:2%;
+  margin-bottom:auto;
   /* background-color: #191970;
   border-radius: 10%;
   color: white; */
