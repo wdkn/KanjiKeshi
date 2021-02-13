@@ -1,34 +1,111 @@
 body{
-  width: 90%;
-  margin-left: 2%;
-  margin-right: 2%;
-  padding:2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   /* background-color: black; */
 }
 
-#title {
+#areaTop {
   width: 80%;
-  padding:5px;
-  font-size: 30px;
-  border: solid;
+  height: 170px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50px;
+      bottom :0;
+      margin:  auto;
+  background-color: lightgray;
+  display: inline-block;
+  max-width: 650px;
+  margin-top: 30px;
+}
+
+#pnlArea {
+  width: 300px;
+  height: 350px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom :0;
+  margin:  auto;
+  background-color: lightgray;
+  display: inline-block;
+  margin-top: 70px;
+}
+
+#title {
+  width: 96%;
+  height: 37px;
   text-align: center;
-  margin: 0 auto;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 2px;
+  padding:1px;
+  font-size: 30px;
+  /* border: solid; */
+  text-align: center;
   /* max-width: 500px; */
   /* align-items: center; */
   display: inline-block;
 }
 
-#areaTop {
-  width: 80%;
-  padding:10px;
-  background-color: lightgray;
+#arealvl {
+  width: 100%;
+  height: 70%;
   display: inline-block;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.lvlBtn {
+  font-size: 30px;
+  width:40%;
+  height: 40px;
+  padding: 5px;
+  text-align: center;
+  /* display: inline-block; */
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top:4px;
+  margin-bottom:4px;
+  /* background-color: #191970;
+  border-radius: 10%;
+  color: white; */
 }
 
 #panel {
-    width: 220px;
-    height: 220px;
-    overflow: hidden;
+  width: 220px;
+  height: 220px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom : 10%;
+  margin:  auto;
+}
+
+#txt {
+  position: absolute;
+  width: 220px;
+  left: 12%;
+  right: 78%;
+  top: 78%;
+  bottom :12%;
+  font-size: 26px;
+  text-align: center;
+  /* display: inline-block; */
+}
+
+#btnDef {
+  position: absolute;
+  width: 220px;
+  left: 13%;
+  right: 0;
+  top: 88%;
+  bottom :0;
+  font-size: 26px;
+  /* display: inline-block; */
 }
 
 .tile {
@@ -44,50 +121,57 @@ body{
     float: left;
     cursor: pointer;
     margin: 1px;
+    background-color: white;
 }
 
 .r_tile {
-    /* width: 50px;
-    height: 50px; */
-    line-height: 50px;
-    /* border: 1px solid silver;
-    border-radius: 10px; */
-    text-align: center;
-    font-size: 26px;
-    font-weight: bold;
-    /* box-shadow: gray 2px 2px; */
-    float: left;
-    cursor: pointer;
 }
 
 .flg_tile {
-    /* width: 50px;
-    height: 50px; */
-    line-height: 50px;
-    /* border: 1px solid silver;
-    border-radius: 10px; */
-    text-align: center;
-    font-size: 26px;
-    font-weight: bold;
-    /* box-shadow: gray 2px 2px; */
-    float: left;
-    cursor: pointer;
 }
 
 #level {
   font-size: 10px;
 }
 
-.lvlBtn {
-  font-size: 30px;
-  width:20%;
-  padding:10px;
-  background-color: #191970;
-  border-radius: 10%;
-  color: white;
+#status {
+  width: 280px;
+  padding: 10px;
+  right: 23%;
+  font-size: 25px;
+  text-align: center;
+  align-items: center;
+  display: inline-block;
 }
 
-#status {
-  width: 100px;
-  text-align: center;
+#lblRemain {
+  display: inline-block;
+  font-size: 15px;
+}
+
+.remain {
+  display: inline-block;
+  font-size: 15px;
+}
+
+#clearArea {
+  display: none;
+}
+#endArea {
+  display: none;
+}
+
+#gameOver {
+  font-size: 50px;
+}
+.poo{
+ color: brown;
+ font-size: 50px;
+}
+#clear {
+  font-size: 50px;
+}
+.laugh {
+  color: orange;
+  font-size: 50px;
 }
