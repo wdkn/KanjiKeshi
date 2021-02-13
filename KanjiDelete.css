@@ -176,3 +176,10 @@ body{
   color: orange;
   font-size: 50px;
 }
+
+
+#version {
+  font-size: 10px;
+  margin-right: 0;
+  margin-top: 0;
+}

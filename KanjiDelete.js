@@ -252,11 +252,13 @@ function btnModeAClick() {
   var txtArea = document.getElementById("txt");
   var tmArea = document.getElementById("tmArea");
   var btnDef = document.getElementById("btnDef");
+  var version = document.getElementById("version");
   topArea.style.display = "none";
   pnlArea.style.display = "inline-block";
   txtArea.style.display = "inline-block";
   tmArea.style.display = "inline-block";
   btnDef.style.display = "inline-block";
+  version.style.display = "none";
   // location.reload();
 
   // カウウントダウンタイマー
