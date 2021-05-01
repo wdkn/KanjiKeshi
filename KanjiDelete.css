@@ -62,7 +62,7 @@ body{
 .lvlBtn {
   font-size: 15px;
   width:40%;
-  height: 10%;
+  height: 20%;
   /* padding: 9px; */
   text-align: center;
   /* display: inline-block; */
@@ -88,9 +88,9 @@ body{
 
 #txt {
   position: absolute;
-  width: 220px;
-  left: 12%;
-  right: 78%;
+  width: 66%;
+  left: 15%;
+  right: 0%;
   top: 78%;
   bottom :12%;
   font-size: 15px;
@@ -100,10 +100,11 @@ body{
 
 #btnDef {
   position: absolute;
-  width: 220px;
-  left: 13%;
+  width: 69%;
+  height: 10%;
+  left: 15%;
   right: 0;
-  top: 88%;
+  top: 89%;
   bottom :0;
   font-size: 15px;
   /* display: inline-block; */
@@ -125,11 +126,11 @@ body{
     background-color: white;
 }
 
-.r_tile {
+/* .r_tile {
 }
 
 .flg_tile {
-}
+} */
 
 #level {
   font-size: 10px;
